@@ -11,6 +11,10 @@ app.use(express.json());
  app.use(authenticate);
  app.use("/posts", postRoute);
 
+ app.get("/",(req,res)=>{
+    res.send("Home Page")
+ })
+
 
 app.listen(process.env.port,async()=>{
     try {
