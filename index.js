@@ -9,13 +9,15 @@ const { authenticate } = require("./middleware/authenticate.middleware")
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use("/users", userRoute);
-app.use(authenticate);
-app.use("/posts", postRoute);
 
 app.get("/", (req, res) => {
     res.send("Home Page")
 })
+
+app.use("/users", userRoute);
+app.use(authenticate);
+app.use("/posts", postRoute);
+
 
 
 app.listen(process.env.port, async () => {
